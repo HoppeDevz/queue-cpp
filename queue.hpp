@@ -42,7 +42,7 @@ void append(queue q, int number) {
 
     if (q->totalElements >= q->length) {
 
-        cout << "Fila cheia!" << endl;
+        cout << "Error:append-method -> Fila cheia!" << endl;
         return;
     }
 
@@ -57,7 +57,7 @@ void removeItem(queue q) {
 
     if (q->totalElements == 0) {
 
-        cout << "Pilha Vazia!";
+        cout << "Error:removeItem -> Pilha Vazia!" << endl;
         return;
     }
 
@@ -76,6 +76,12 @@ void removeItem(queue q) {
 
 void showQeue(queue q) {
 
+    if (q->totalElements == 0) {
+
+        cout << "Error:showQeue -> Pilha Vazia!" << endl;
+        return;
+    }
+
     for (int i = 0; i < q->totalElements; i++) {
 
         int x = q->startValue + i == q->length ? 0 : q->startValue + i; 
@@ -93,4 +99,24 @@ bool isFull(queue q) {
 bool isEmpty(queue q) {
     
     return q->totalElements == 0;
+}
+
+int sumItems(queue q) {
+
+    int sum = 0;
+
+    if (q->totalElements == 0) {
+
+        cout << "Error:sumItems -> Pilha Vazia!" << endl;
+        return 0;
+    }
+
+    for (int i = 0; i < q->totalElements; i++) {
+
+        int x = q->startValue + i == q->length ? 0 : q->startValue + i; 
+
+        sum = sum + (int)q->elements[x];
+    }
+
+    return sum;
 }
