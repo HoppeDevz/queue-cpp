@@ -84,3 +84,13 @@ void showQeue(queue q) {
     }
     cout << endl;
 }
+
+bool isFull(queue q) {
+
+    return q->totalElements == q->length;
+}
+
+bool isEmpty(queue q) {
+    
+    return q->totalElements < q->length;
+}
