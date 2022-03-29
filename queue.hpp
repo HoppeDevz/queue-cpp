@@ -92,5 +92,5 @@ bool isFull(queue q) {
 
 bool isEmpty(queue q) {
     
-    return q->totalElements < q->length;
+    return q->totalElements == 0;
 }
