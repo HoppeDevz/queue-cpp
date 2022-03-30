@@ -9,8 +9,9 @@ int main() {
 
     append(f, 1);
     append(f, 2);
+    appendIni(f, 3);
 
-    cout << sumItems(f) << endl;
+    showQeue(f);
 
     system("pause");
     return 0;

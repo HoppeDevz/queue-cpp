@@ -53,6 +53,24 @@ void append(queue q, int number) {
     if (q->finalValue == q->length) q->finalValue = 0;
 }
 
+void appendIni(queue q, int number) {
+
+    if (q->totalElements >= q->length) {
+
+        cout << "Error:append-method -> Filha cheia!" << endl;
+        return;
+    }
+
+    int index = q->startValue - 1;
+
+    if (index < 0)
+        index = q->length - 1;
+
+    q->elements[index] = number;
+    q->startValue = index;
+    q->totalElements++;
+}
+
 void removeItem(queue q) {
 
     if (q->totalElements == 0) {
@@ -82,11 +100,19 @@ void showQeue(queue q) {
         return;
     }
 
+    int counter = 0;
+
     for (int i = 0; i < q->totalElements; i++) {
 
-        int x = q->startValue + i == q->length ? 0 : q->startValue + i; 
+        int index = q->startValue + i;
 
-        cout << (int)q->elements[x] << " ";
+        if (q->startValue + i >= q->length) {
+
+            index = 0 + counter;
+            counter++;
+        }
+
+        cout << (int)q->elements[index] << " ";
     }
     cout << endl;
 }
